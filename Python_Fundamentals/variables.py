@@ -14,6 +14,7 @@ variantCamel = "Camel format"
 VariantPascal = "Pascal format" 
 
 
+
 # Second block of lines is meant to show single declaration of variables
 x,y,z = '1','2',"3"
 print(x,y,z)
@@ -22,7 +23,9 @@ a = b = c = 1
 print(a,b,c)
 print("logic state " + a)
 
-# The third blocl of lines aims to show the different datatypes to be stored
+
+
+# The third block of lines aims to show the different datatypes to be stored
 
     # Data type 1) Strings
 text_type_1 = 'text'
@@ -69,3 +72,22 @@ print(set_var)
 
 boolean_var = True
 print(boolean_var)
+
+
+
+# The fourth block covers data tconversion from one type to another
+
+integer_to_float = float(integer_var)
+print(type(integer_to_float),integer_to_float)
+
+float_to_integer = int(float_var)
+print(type(float_to_integer),float_to_integer)
+
+integer_to_complex = complex(integer_var)
+print(type(integer_to_complex),integer_to_complex)
+
+float_to_complex = complex(float_var)
+print(type(float_to_complex),float_to_complex)
+
+import random
+print(random.randrange(1,10)) 
