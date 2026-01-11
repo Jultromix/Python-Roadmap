@@ -60,8 +60,11 @@ BASE_URL = "https://newsapi.org/v2/everything"
 
 # import requests
 import json
+from types import NoneType
 import urllib.parse
 import urllib.request
+
+response_data = None
 
 
 # Test function 1
@@ -69,10 +72,13 @@ def newsapy_client(api_key, query, timeout=30, retries=3):
     query_string = urllib.parse.urlencode({"q": query, "apiKey": api_key})
     url = f"{BASE_URL}?{query_string}"
 
-    with urllib.request.urlopen(url, timeout=timeout) as response:
-        data = response.read().decode("utf-8")
-        return json.loads(data)
-    return f"NewsAPI: {query} con timout {timeout}"
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as response:
+            data = response.read().decode("utf-8")
+            return json.loads(data)
+        return f"NewsAPI: {query} con timout {timeout}"
+    except urllib.error.HTTPError:
+        print("Invalid API Key, the operation was aborted")
 
 
 # Test function 2
@@ -100,5 +106,8 @@ def fetch_news(api_name, *args, **kwargs):
 
 response_data = fetch_news("newapi", api_key=API_KEY, query="Electronics")
 
-for article in response_data["articles"]:
-    print(article["title"])
+try:
+    for article in response_data["articles"]:
+        print(article["title"])
+except TypeError:
+    print("The data couldn't neither be retrieved nor processed")
