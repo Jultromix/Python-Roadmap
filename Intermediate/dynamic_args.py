@@ -64,7 +64,17 @@ from types import NoneType
 import urllib.parse
 import urllib.request
 
-response_data = None
+
+class NewsSystemError(Exception):
+    """General Errors in the app"""
+
+    pass
+
+
+class APIKeyError(NewsSystemError):
+    """Error for invalid key"""
+
+    pass
 
 
 # Test function 1
@@ -77,8 +87,7 @@ def newsapy_client(api_key, query, timeout=30, retries=3):
             data = response.read().decode("utf-8")
             return json.loads(data)
     except urllib.error.HTTPError:
-        print("Invalid API Key, the operation was aborted")
-        return {"articles": []}
+        raise APIKeyError("An error occured, API's connection failed")
     return f"NewsAPI: {query} con timout {timeout}"
 
 
@@ -105,7 +114,12 @@ def fetch_news(api_name, *args, **kwargs):
     return client(*args, **custom_config)
 
 
-response_data = fetch_news("newapi", api_key=API_KEY, query="Electronics")
+response_data = None
+try:
+    response_data = fetch_news("newapi", api_key=API_KEY, query="Electronics")
+except APIKeyError as e:
+    print(f"{e}")
 
-for article in response_data["articles"]:
-    print(article["title"])
+if response_data:
+    for article in response_data["articles"]:
+        print(article["title"])
