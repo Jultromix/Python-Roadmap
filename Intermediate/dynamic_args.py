@@ -55,8 +55,8 @@ ejemplo_kwargs(
 ### NEW SET OF PRECTICAL EXAMPLES Dynamic Args + APIs####
 
 
-API_KEY = "8a234dab6f894d6f8ee8d9aad5818d12"
-BASE_URL = "https://newsapi.org/v2/everything"
+API_KEY = ""
+BASE_URL = ""
 
 # import requests
 import json
@@ -76,9 +76,10 @@ def newsapy_client(api_key, query, timeout=30, retries=3):
         with urllib.request.urlopen(url, timeout=timeout) as response:
             data = response.read().decode("utf-8")
             return json.loads(data)
-        return f"NewsAPI: {query} con timout {timeout}"
     except urllib.error.HTTPError:
         print("Invalid API Key, the operation was aborted")
+        return {"articles": []}
+    return f"NewsAPI: {query} con timout {timeout}"
 
 
 # Test function 2
@@ -106,8 +107,5 @@ def fetch_news(api_name, *args, **kwargs):
 
 response_data = fetch_news("newapi", api_key=API_KEY, query="Electronics")
 
-try:
-    for article in response_data["articles"]:
-        print(article["title"])
-except TypeError:
-    print("The data couldn't neither be retrieved nor processed")
+for article in response_data["articles"]:
+    print(article["title"])
