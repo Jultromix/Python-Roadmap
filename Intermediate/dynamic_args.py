@@ -1,103 +1,23 @@
-#### INTO THE ARGS THEORY ####
-def ejemplo_args(api_key, *args):
-    print(f"Api_key: {api_key} de tipo {type(api_key)}")
-    print(f"Argumentos dinámicos {args} de tipo {type(args)}")
-
-
-ejemplo_args("p1", "p2", "p3")
-ejemplo_args("p1_1", "p1_2")
-# ejemplo_args()
-
-
-def dinamic_adder(*args: int | float) -> float:
-    """
-    Add multiple numbers dynamically and print the result.
-
-    This function accepts a variable number of numeric arguments,
-    calculates their sum, and prints both the input numbers and
-    the calculated result to the console.
-
-    Args:
-        *args (int | float): Variable number of numeric values to be added.
-            Can be integers or floating-point numbers.
-
-    Returns:
-        float: The sum of all provided numbers. Returns 0 if no arguments
-            are provided.
-
-    Raises:
-        TypeError: If any argument is not a number (int or float).
-            The function catches this error and prints a user-friendly
-            message in Spanish instead of raising the exception.
-
-    Examples:
-        >>> dinamic_adder(1, 2, 3)
-        Numbers to add (1, 2, 3) with result 6
-
-        >>> dinamic_adder(1.5, 2.5, 3.0)
-        Numbers to add (1.5, 2.5, 3.0) with result 7.0
-
-        >>> dinamic_adder(10, 20)
-        Numbers to add (10, 20) with result 30
-
-        >>> dinamic_adder("text", 5)
-        tipo de dato incorrecto, operación abortada, usa solo números
-    """
-    try:
-        result = sum(args)
-        print(f"Numbers to add {args} with result {result}")
-        return result
-    except TypeError:
-        print("tipo de dato incorrecto, operación abortada, usa solo números")
-        return 0.0
-
-
-dinamic_adder(1, 1)
-dinamic_adder(1, 1, 3, 4, 5, 6, 7, 8, 9)
-dinamic_adder(1, "1")
-dinamic_adder(1, 2.3)
-
-
-def dinamic_adder_compr(*args):
-    """function to add numbers conditioning its type"""
-    print(
-        f"Numbers to add {args} with result {
-            sum([x for x in args if isinstance(x, (float, int))])
-        }"
-    )
-
-
-dinamic_adder_compr(1, 1)
-dinamic_adder_compr(1, "1")
-
-
-#### KWARGS ###
-def ejemplo_kwargs(**kwargs):
-    print(f" {type(kwargs)}")
-    print(f" {kwargs}")
-    print("=========")
-
-
-ejemplo_kwargs(key="llave", value="valor", grade=3)
-
-ejemplo_kwargs(api_key="DEMO", query="Python News", timout=30, retries=3)
-
-ejemplo_kwargs(
-    api_key="GUARDIAN", section="Sports", from_date="2026-01-10", timeout=30, retries=3
-)
-
-
 ### NEW SET OF PRECTICAL EXAMPLES Dynamic Args + APIs####
-
-
-API_KEY = ""
-BASE_URL = ""
-
-# import requests
 import json
-from types import NoneType
 import urllib.parse
 import urllib.request
+from dotenv import load_dotenv
+import os
+
+from Intermediate_news_analyzer.utils import (
+    extract_sources,
+    get_articles_by_source,
+    get_reading_time,
+)
+from open_ai import analize_news_with_ai
+
+
+load_dotenv()
+API_KEY = os.environ.get("API_KEY")
+BASE_URL = os.environ.get("BASE_URL")
+
+# import requests
 
 
 class NewsSystemError(Exception):
@@ -151,10 +71,37 @@ def fetch_news(api_name, *args, **kwargs):
 
 response_data = None
 try:
-    response_data = fetch_news("newapi", api_key=API_KEY, query="Electronics")
+    response_data = fetch_news("newapi", api_key=API_KEY, query="Python")
 except APIKeyError as e:
     print(f"{e}")
 
 if response_data:
     for article in response_data["articles"]:
         print(article["title"])
+
+if response_data:
+    print(analize_news_with_ai(response_data["articles"], "Qué piensas de Python?"))
+
+
+if response_data:
+    sources_set = extract_sources(response_data["articles"])
+
+    for index, source in enumerate(sources_set, start=1):
+        print(f"No: {index} -- {source}")
+
+    sources_set = extract_sources(response_data["articles"])
+
+    for index, source in enumerate(sources_set, start=1):
+        print(f"No: {index} -- {source}")
+
+    articles = list(map(get_reading_time, response_data["articles"]))
+
+    analize_news_with_ai(response_data["articles"], "What do you think about python?")
+
+    for article in articles:
+        print(f" {article['title']} -- Reading time {article['reading_time']}")
+
+    journal_articles = get_articles_by_source(
+        response_data["articles"], "Yahoo Entertainment"
+    )
+    print(journal_articles)
