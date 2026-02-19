@@ -4,6 +4,23 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.availability = availability
+        self.borrowing_hystory = []
+
+    def __str__(self):
+        return f"title: {self.title} | author: {self.author} | isbn: {self.isbn} | availability: {self.availability}"
+
+    def borrow(self):
+        if self.availability:
+            self.availability = False
+            self.borrowing_hystory.append(self)
+            return f"{self.title} was borrowed succesfully"
+
+    def give_back(self):
+        self.availability = True
+        return f"{self.title} was returned and is available again"
+
+    def is_popular(self):
+        return self.borrowing_hystory.count(self) >= 5
 
 
 catalog = [
@@ -14,6 +31,18 @@ catalog = [
 ]
 
 for index, book in enumerate(catalog, start=1):
-    print(
-        f"{index} - title: {book.title} | author: {book.author} | isbn: {book.isbn} | availability: {book.availability}"
-    )
+    print(f"{index} - {book}")
+
+print(catalog[0].borrow())
+print(catalog[0].give_back())
+print(catalog[0].borrow())
+print(catalog[0].give_back())
+print(catalog[0].borrow())
+print(catalog[0].give_back())
+print(catalog[0].borrow())
+print(catalog[0].give_back())
+print(catalog[0].is_popular())
+
+print(catalog[0].borrow())
+print(catalog[0].give_back())
+print(catalog[0].is_popular())
