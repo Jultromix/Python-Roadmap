@@ -4,7 +4,7 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.availability = availability
-        self.borrowing_hystory = []
+        self.__borrowing_hystory = 0
 
     def __str__(self):
         return f"title: {self.title} | author: {self.author} | isbn: {self.isbn} | availability: {self.availability}"
@@ -12,15 +12,22 @@ class Book:
     def borrow(self):
         if self.availability:
             self.availability = False
-            self.borrowing_hystory.append(self)
-            return f"{self.title} was borrowed succesfully"
+            self.__borrowing_hystory += 1
+            return f"{self.title} was borrowed succesfully, borrowing total quantity {self.__borrowing_hystory}"
+        return f"{self.title} not available"
 
     def give_back(self):
         self.availability = True
         return f"{self.title} was returned and is available again"
 
     def is_popular(self):
-        return self.borrowing_hystory.count(self) >= 5
+        return self.__borrowing_hystory >= 5
+
+    def get_borrowed_quantity(self):
+        return self.__borrowing_hystory
+
+    def set_borrowed_quantity(self, borrowed_quantity: int):
+        self.__borrowing_hystory = borrowed_quantity
 
 
 catalog = [
@@ -32,6 +39,11 @@ catalog = [
 
 for index, book in enumerate(catalog, start=1):
     print(f"{index} - {book}")
+
+catalog[0].set_borrowed_quantity(23)
+print(catalog[0].get_borrowed_quantity())
+
+# print(catalog[0].__borrowing_hystory)     >>> Shows error
 
 print(catalog[0].borrow())
 print(catalog[0].give_back())
