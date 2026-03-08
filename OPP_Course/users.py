@@ -1,3 +1,11 @@
+from typing import Protocol
+from main import Book
+
+class RequesterProtocol(Protocol):
+    def request_book(self, title: str) -> str:
+        """Method to be used by any requester"""
+        ...
+
 class User():
     def __init__(self,name:str, id:int):
         self.name = name
@@ -8,7 +16,7 @@ class User():
         return f"Book {title} request done"
     
     def return_book(self, title):
-        if len(self.borrowed_books) > 0:
+        if len(self.borrowed_books) > 0 and title in self.borrowed_books:
             self.borrowed_books.remove(title)
             return f"Book: {title} was returned successfully, borrowed books: {len(self.borrowed_books)}"
         else:
@@ -22,7 +30,7 @@ class Student(User):
         self.borrowed_books = []
 
     def request_book(self, title):
-        if len(self.borrowed_books) < self.book_limit and title in self.borrowed_books:
+        if len(self.borrowed_books) < self.book_limit:
             self.borrowed_books.append(title)
             return f"Book: {title} was borrowed successfully, borrowed books: {len(self.borrowed_books)}"
         else:
@@ -44,20 +52,11 @@ class Professor(User):
         
 
 student = Student("Mike", 1223, "Art")
+student_1 = Student("Jose", 1224, "Math")
 professor = Professor("Girafales", 23423, "Chemistry")
+book = Book("The Art of Lying", "Julio Verne", "11111222312232")
 
-print(student.request_book("Mobby Dick"))
-print(student.request_book("Electron Dance"))
-print(student.request_book("Colorful sounds"))
-print(student.request_book("Thunders and stuff"))
-print(student.return_book("Mobby Dick"))
+users: list[RequesterProtocol] = [student, student_1,professor, book]
 
-print(professor.request_book("Electron Dance"))
-print(professor.request_book("Colorful sounds"))
-print(professor.request_book("Thunders and stuff"))
-print(professor.request_book("The art of lying"))
-print(professor.return_book("Colorful sounds"))
-print(professor.return_book("Thunders and stuff"))
-print(professor.return_book("The art of lying"))
-print(professor.return_book("Electron Dance"))
-print(professor.return_book("Electron Dance"))
+for user in users:
+    print(user.request_book("The Art of Lying"))
