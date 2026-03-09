@@ -1,5 +1,5 @@
 from typing import Protocol
-from main import Book
+from books import Book
 
 class RequesterProtocol(Protocol):
     def request_book(self, title: str) -> str:
@@ -10,7 +10,7 @@ class User():
     def __init__(self,name:str, id:int):
         self.name = name
         self.id = id
-        self.borrowed_books = []
+        self.borrowed_books: list[str] = []
 
     def request_book(self, title:str):
         return f"Book {title} request done"
@@ -49,14 +49,3 @@ class Professor(User):
         self.borrowed_books.append(title)
         return f"Book: {title} was borrowed successfully, borrowed books: {len(self.borrowed_books)}"
         
-        
-
-student = Student("Mike", 1223, "Art")
-student_1 = Student("Jose", 1224, "Math")
-professor = Professor("Girafales", 23423, "Chemistry")
-book = Book("The Art of Lying", "Julio Verne", "11111222312232")
-
-users: list[RequesterProtocol] = [student, student_1,professor, book]
-
-for user in users:
-    print(user.request_book("The Art of Lying"))

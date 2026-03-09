@@ -1,33 +1,7 @@
-class Book:
-    def __init__(self, title: str, author: str, isbn: str, availability: bool):
-        self.title = title
-        self.author = author
-        self.isbn = isbn
-        self.availability = availability
-        self.__borrowing_hystory = 0
+from books import PhysicalBook,Book
+from library import Library
+from users import Student,Professor
 
-    def __str__(self):
-        return f"title: {self.title} | author: {self.author} | isbn: {self.isbn} | availability: {self.availability}"
-
-    def borrow(self):
-        if self.availability:
-            self.availability = False
-            self.__borrowing_hystory += 1
-            return f"{self.title} was borrowed succesfully, borrowing total quantity {self.__borrowing_hystory}"
-        return f"{self.title} not available"
-
-    def give_back(self):
-        self.availability = True
-        return f"{self.title} was returned and is available again"
-
-    def is_popular(self):
-        return self.__borrowing_hystory >= 5
-
-    def get_borrowed_quantity(self):
-        return self.__borrowing_hystory
-
-    def set_borrowed_quantity(self, borrowed_quantity: int):
-        self.__borrowing_hystory = borrowed_quantity
 
 
 catalog = [
@@ -37,24 +11,51 @@ catalog = [
     Book("Chemisrty II", "J.v Dallas", "345678901", False),
 ]
 
-for index, book in enumerate(catalog, start=1):
-    print(f"{index} - {book}")
+# for index, book in enumerate(catalog, start=1):
+#     print(f"{index} - {book}")
 
-catalog[0].set_borrowed_quantity(23)
-print(catalog[0].get_borrowed_quantity())
+# catalog[0].set_borrowed_quantity(23)
+# print(catalog[0].get_borrowed_quantity())
 
 # print(catalog[0].__borrowing_hystory)     >>> Shows error
 
-print(catalog[0].borrow())
-print(catalog[0].give_back())
-print(catalog[0].borrow())
-print(catalog[0].give_back())
-print(catalog[0].borrow())
-print(catalog[0].give_back())
-print(catalog[0].borrow())
-print(catalog[0].give_back())
-print(catalog[0].is_popular())
+# print(catalog[0].borrow())
+# print(catalog[0].give_back())
+# print(catalog[0].borrow())
+# print(catalog[0].give_back())
+# print(catalog[0].borrow())
+# print(catalog[0].give_back())
+# print(catalog[0].borrow())
+# print(catalog[0].give_back())
+# print(catalog[0].is_popular())
 
-print(catalog[0].borrow())
-print(catalog[0].give_back())
-print(catalog[0].is_popular())
+# print(catalog[0].borrow())
+# print(catalog[0].give_back())
+# print(catalog[0].is_popular())
+
+    
+# Composition Examples:
+my_book = PhysicalBook("The little drunk sailor", "Mariens Sarcowysk","22223123",True)
+my_book_unavailable = PhysicalBook("The big fancy river", "Stephen Wallow", "3342123",False)
+another_book = PhysicalBook("K'otongasin Lan Venderdier", "Marshell Billow", "4411231",True)
+
+library = Library("Mosan Library")
+library.books = [
+    my_book,
+    my_book_unavailable,
+    another_book
+]
+
+print(library.available_books())
+
+        
+
+student = Student("Mike", 1223, "Art")
+student_1 = Student("Jose", 1224, "Math")
+professor = Professor("Girafales", 23423, "Chemistry")
+book = Book("The Art of Lying", "Julio Verne", "11111222312232",True)
+
+library.users = [student, student_1,professor]
+
+for user in library.users:
+    print(user.request_book("The Art of Lying"))
