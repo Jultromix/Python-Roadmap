@@ -1,4 +1,6 @@
 from typing import Protocol
+from exceptions import BookNotAvailable
+
 
 class BookProtocol(Protocol):
     def give_back(self) -> str:
@@ -12,6 +14,7 @@ class BookProtocol(Protocol):
     def calculate_duration(self) -> str:
         """Method to calculate duration"""
         ...
+
 
 class Book:
     def __init__(self, title: str, author: str, isbn: str, availability: bool):
@@ -29,7 +32,8 @@ class Book:
             self.availability = False
             self.__borrowing_hystory += 1
             return f"{self.title} was borrowed succesfully, borrowing total quantity {self.__borrowing_hystory}"
-        return f"{self.title} not available"
+        else:
+            raise BookNotAvailable(f"The book {self.title} is not available")
 
     def give_back(self):
         self.availability = True
@@ -47,8 +51,9 @@ class Book:
 
 class PhysicalBook(Book):
     def calculate_duration(self):
-        return f"7 days"
-    
+        return "7 days"
+
+
 class VirtualBook(Book):
     def calculate_duration(self):
-        return f"14 days"
+        return "14 days"

@@ -1,5 +1,5 @@
 from typing import Protocol
-from books import Book
+from exceptions import InvalidTitle
 
 class RequesterProtocol(Protocol):
     def request_book(self, title: str) -> str:
@@ -30,6 +30,9 @@ class Student(User):
         self.borrowed_books = []
 
     def request_book(self, title):
+        if not title:
+            raise InvalidTitle(f"The book's title: {title} is not valid")
+
         if len(self.borrowed_books) < self.book_limit:
             self.borrowed_books.append(title)
             return f"Book: {title} was borrowed successfully, borrowed books: {len(self.borrowed_books)}"
