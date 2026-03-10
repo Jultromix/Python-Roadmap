@@ -1,7 +1,7 @@
-from exceptions import LibraryError, UserNotFoundError
-from books import PhysicalBook, Book
+from exceptions import BookNotAvailable, LibraryError, UserNotFoundError
+from books import Book
 from library import Library
-from users import Student, Professor
+from users import Professor
 from example_data import book_data, student_data
 # Create student objects
 
@@ -13,16 +13,13 @@ library = Library("Mosan Library")
 library.books = book_data
 library.users = [professor] + student_data
 
-for user in library.users:
-    print(user.request_book("The Art of Lying"))
-
 print("Welcome to Mosans Library")
 print("Available books:")
 
 for index, title in enumerate(library.available_books(), start=1):
     print(f"{index}. {title}")
 
-
+# Search user
 try:
     id = input("Type your id number: ")
     user = library.search_user(id)
@@ -32,11 +29,29 @@ except UserNotFoundError as e:
     print(f"Fail: {e}, {type(e)}")
     print("The searched user doesn't exist")
 
+# Search Book
+try:
+    title = input("Type the book title: ")
+    book = library.search_book(title)
+    print(f"Selected book was: {book}")
+except BookNotAvailable as e:
+    print(f"Fail: {e}, {type(e)}")
+    print("The searched book doesn't exist or not available")
+
+# Request book
+result = user.request_book(book.title)
+print(f"\n{result}")
+
+try:
+    result_borrow = book.borrow()
+    print(f"\n{result_borrow}")
+except BookNotAvailable as e:
+    print(e)
 
 # Test error handlers
 try:
-    result = student.request_book(None)
-    print(f"\n\n\n Error handlers start here: \n{result}")
+    result = library.users[0].request_book(None)
+    print(f"\n\n\nError handlers start here: \n{result}")
 except LibraryError as e:
     print(f"\n\n\nError handlers start here: \nFail: {e}, {type(e)}")
     print("The book request failed")

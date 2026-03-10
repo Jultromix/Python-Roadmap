@@ -1,6 +1,6 @@
 from books import BookProtocol
 from users import RequesterProtocol
-from exceptions import UserNotFoundError
+from exceptions import BookNotAvailable, UserNotFoundError
 
 
 class Library:
@@ -18,3 +18,9 @@ class Library:
                 return user
 
         raise UserNotFoundError(f"The user whose id is: {id}, wasn't found")
+
+    def search_book(self, title):
+        for book in self.books:
+            if book.title == title and book.availability:
+                return book
+        raise BookNotAvailable(f"The book: {title} isn't available or doesn't exist")

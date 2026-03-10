@@ -1,5 +1,5 @@
 from library import Library
-from users import Student
+from users import Student, Professor
 from books import PhysicalBook
 
 
@@ -32,7 +32,7 @@ student8 = Student("Ethan", "2143", "Electronics")
 student9 = Student("Gala", "4324", "Software Engineering")
 student10 = Student("Marian", "4234", "Music")
 
-book_data = [
+book_data: list[PhysicalBook] = [
     my_book1,
     my_book2,
     my_book3,
@@ -45,7 +45,7 @@ book_data = [
     my_book10,
 ]
 
-student_data = [
+student_data: list[Student | Professor] = [
     student1,
     student2,
     student3,
