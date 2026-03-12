@@ -1,5 +1,6 @@
 from typing import Protocol
 from exceptions import InvalidTitle
+from abc import ABC, abstractmethod
 
 
 class RequesterProtocol(Protocol):
@@ -8,7 +9,18 @@ class RequesterProtocol(Protocol):
         ...
 
 
-class User:
+class BaseUser(ABC):
+    @abstractmethod
+    def request_book(self, title: str) -> str:
+        """Method to be used by any requester"""
+        pass
+
+    @abstractmethod
+    def test_method(self):
+        pass
+
+
+class User(BaseUser):
     def __init__(self, name: str, id: str):
         self.name = name
         self.id = id
@@ -23,6 +35,9 @@ class User:
             return f"Book: {title} was returned successfully, borrowed books: {len(self.borrowed_books)}"
         else:
             return "There are no more books to return"
+
+    def test_method(self):
+        return "Test method implemented in User class, to understand the use of abstract methods and classes"
 
 
 class Student(User):

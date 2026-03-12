@@ -1,5 +1,6 @@
 from typing import Protocol
 from exceptions import BookNotAvailable
+from abc import ABC, abstractmethod
 
 
 class BookProtocol(Protocol):
@@ -16,7 +17,34 @@ class BookProtocol(Protocol):
         ...
 
 
-class Book:
+class BaseBook(ABC):
+    @abstractmethod
+    def give_back(self) -> str:
+        """Method to give back one book"""
+        pass
+
+    @abstractmethod
+    def borrow(self) -> str:
+        """Method to borrow one book"""
+        pass
+
+    @abstractmethod
+    def get_borrowed_quantity(self) -> int:
+        """Method to get the borrowed quantity of a book"""
+        pass
+
+    @abstractmethod
+    def set_borrowed_quantity(self, borrowed_quantity: int):
+        """Method to set the borrowed quantity of a book"""
+        pass
+
+    @abstractmethod
+    def is_popular(self) -> bool:
+        """Method to know if a book is popular or not"""
+        pass
+
+
+class Book(BaseBook):
     def __init__(self, title: str, author: str, isbn: str, availability: bool):
         self.title = title
         self.author = author
