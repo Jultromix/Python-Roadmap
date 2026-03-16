@@ -1,0 +1,155 @@
+{
+    "name": "Mosan Library",
+    "users": [
+        {
+            "name": "Girafales",
+            "id": "23423",
+            "borrowed_books": [],
+            "department": "Chemistry",
+            "book_limit": null
+        },
+        {
+            "name": "Mike",
+            "id": "3324",
+            "borrowed_books": [],
+            "career": "Art",
+            "book_limit": 3
+        },
+        {
+            "name": "Anna",
+            "id": "2421",
+            "borrowed_books": [],
+            "career": "Math",
+            "book_limit": 3
+        },
+        {
+            "name": "Fin",
+            "id": "1757",
+            "borrowed_books": [],
+            "career": "Agronomy",
+            "book_limit": 3
+        },
+        {
+            "name": "Juan",
+            "id": "7382",
+            "borrowed_books": [],
+            "career": "Law",
+            "book_limit": 3
+        },
+        {
+            "name": "Jaime",
+            "id": "3835",
+            "borrowed_books": [],
+            "career": "Applied Sciences",
+            "book_limit": 3
+        },
+        {
+            "name": "David",
+            "id": "3372",
+            "borrowed_books": [],
+            "career": "Medicine",
+            "book_limit": 3
+        },
+        {
+            "name": "Pablo",
+            "id": "0085",
+            "borrowed_books": [],
+            "career": "Philosophy",
+            "book_limit": 3
+        },
+        {
+            "name": "Ethan",
+            "id": "2143",
+            "borrowed_books": [],
+            "career": "Electronics",
+            "book_limit": 3
+        },
+        {
+            "name": "Gala",
+            "id": "4324",
+            "borrowed_books": [],
+            "career": "Software Engineering",
+            "book_limit": 3
+        },
+        {
+            "name": "Marian",
+            "id": "4234",
+            "borrowed_books": [],
+            "career": "Music",
+            "book_limit": 3
+        }
+    ],
+    "books": [
+        {
+            "title": "The little drunk sailor",
+            "author": "Mariens Sarcowysk",
+            "isbn": "22223123",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Smile face",
+            "author": "Mariens Sarcowysk",
+            "isbn": "2232845123",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Red as Murder",
+            "author": "Sarls Moinhanau",
+            "isbn": "2222341423",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Laws of Power",
+            "author": "Glea Ahiumy",
+            "isbn": "356234343",
+            "availability": false,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Marine Biology",
+            "author": "Suatshme Braf",
+            "isbn": "443262343",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Expansionism of space",
+            "author": "Shingeri Fing",
+            "isbn": "3442367774",
+            "availability": false,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "A<tomic Worlds",
+            "author": "Mosan Sanchez",
+            "isbn": "1222512345",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "The art of persuasion",
+            "author": "Shasova Petrist",
+            "isbn": "356672343",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "Kraken, an unseen creature",
+            "author": "Berguir Amil",
+            "isbn": "22223123",
+            "availability": false,
+            "_Book__borrowing_hystory": 0
+        },
+        {
+            "title": "The strange case of Martin O' Wayat",
+            "author": "Marton Lumstram",
+            "isbn": "3342353254",
+            "availability": true,
+            "_Book__borrowing_hystory": 0
+        }
+    ],
+    "saved_data": "2026-03-16T15:55:19.222651"
+}

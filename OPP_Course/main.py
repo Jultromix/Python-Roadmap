@@ -2,16 +2,17 @@ from exceptions import BookNotAvailable, LibraryError, UserNotFoundError
 from books import Book
 from library import Library
 from users import Professor, Student
-from example_data import book_data, student_data
+from persistence import Persistence
+
 # Create student objects
 
 professor = Professor("Girafales", "23423", "Chemistry")
 book1 = Book("The Art of Lying", "Julio Verne", "11111222312232", False)
 
-# Create library
-library = Library("Mosan Library")
-library.books = book_data
-library.users = [professor] + student_data
+# Create & load library
+persistence = Persistence()
+
+library = persistence.load_data()
 
 
 # Create a book with the class method (not available)
@@ -25,9 +26,6 @@ student_career = Student.create_student_with_career("Juls", "12331223", "Mechatr
 print(
     f"Student with career: {student_career.name} | ID: {student_career.id} | Career: {student_career.career}"
 )
-
-test_book = book_data[0]
-test_book.borrowed_quantity = 1
 
 print("Welcome to Mosans Library")
 print("Available books:")
@@ -84,3 +82,5 @@ except LibraryError as e:
 # Static method test
 result = Library.validate_isbn("1234567890")
 print(f"\nIs the isbn valid? {result}")
+
+persistence.save_data(library)

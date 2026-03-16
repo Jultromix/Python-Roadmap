@@ -1,4 +1,3 @@
-from math import e
 from typing import Protocol
 from exceptions import BookNotAvailable, InvalidBorrowingQuantity
 from abc import ABC, abstractmethod
