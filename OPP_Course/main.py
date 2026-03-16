@@ -1,7 +1,7 @@
 from exceptions import BookNotAvailable, LibraryError, UserNotFoundError
 from books import Book
 from library import Library
-from users import Professor
+from users import Professor, Student
 from example_data import book_data, student_data
 # Create student objects
 
@@ -13,11 +13,29 @@ library = Library("Mosan Library")
 library.books = book_data
 library.users = [professor] + student_data
 
+
+# Create a book with the class method (not available)
+non_available_book = Book.create_no_available(
+    "The Art of Lying", "Julio Verne", "11111222312232"
+)
+print(f"\nBook created with class method: {non_available_book.availability}")
+
+# Create a student with the class method
+student_career = Student.create_student_with_career("Juls", "12331223", "Mechatronics")
+print(
+    f"Student with career: {student_career.name} | ID: {student_career.id} | Career: {student_career.career}"
+)
+
+test_book = book_data[0]
+test_book.borrowed_quantity = 1
+
 print("Welcome to Mosans Library")
 print("Available books:")
 
-for index, title in enumerate(library.available_books(), start=1):
-    print(f"{index}. {title}")
+for index, book in enumerate(library.available_books(), start=1):
+    print(
+        f"{index}. {book.title}: {book.borrowed_quantity} --|-- {book.full_description}"
+    )
 
 # Search user
 try:
@@ -61,3 +79,8 @@ try:
     print(book1.borrow())
 except LibraryError as e:
     print(f"Fail: {e}, {type(e)}")
+
+
+# Static method test
+result = Library.validate_isbn("1234567890")
+print(f"\nIs the isbn valid? {result}")

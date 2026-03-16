@@ -12,3 +12,7 @@ class BookNotAvailable(LibraryError):
 
 class UserNotFoundError(LibraryError):
     pass
+
+
+class InvalidBorrowingQuantity(LibraryError):
+    pass

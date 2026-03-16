@@ -57,6 +57,10 @@ class Student(User):
         else:
             return f"No more books can be borrowed, limit has been reached: {self.book_limit}"
 
+    @classmethod
+    def create_student_with_career(cls, name: str, id: str, career: str):
+        return cls(name, id, career)
+
 
 class Professor(User):
     def __init__(self, name, id, department):

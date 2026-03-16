@@ -1,5 +1,6 @@
+from math import e
 from typing import Protocol
-from exceptions import BookNotAvailable
+from exceptions import BookNotAvailable, InvalidBorrowingQuantity
 from abc import ABC, abstractmethod
 
 
@@ -29,14 +30,14 @@ class BaseBook(ABC):
         pass
 
     @abstractmethod
-    def get_borrowed_quantity(self) -> int:
+    def borrowed_quantity(self) -> int:
         """Method to get the borrowed quantity of a book"""
         pass
 
-    @abstractmethod
-    def set_borrowed_quantity(self, borrowed_quantity: int):
-        """Method to set the borrowed quantity of a book"""
-        pass
+    # @abstractmethod
+    # def set_borrowed_quantity(self, borrowed_quantity: int):
+    #     """Method to set the borrowed quantity of a book"""
+    #     pass
 
     @abstractmethod
     def is_popular(self) -> bool:
@@ -51,6 +52,10 @@ class Book(BaseBook):
         self.isbn = isbn
         self.availability = availability
         self.__borrowing_hystory = 0
+
+    @classmethod
+    def create_no_available(cls, title: str, author: str, isbn: str):
+        return cls(title, author, isbn, availability=False)
 
     def __str__(self):
         return f"title: {self.title} | author: {self.author} | isbn: {self.isbn} | availability: {self.availability}"
@@ -67,14 +72,24 @@ class Book(BaseBook):
         self.availability = True
         return f"{self.title} was returned and is available again"
 
+    @property
     def is_popular(self):
         return self.__borrowing_hystory >= 5
 
-    def get_borrowed_quantity(self):
+    @property
+    def borrowed_quantity(self):
         return self.__borrowing_hystory
 
-    def set_borrowed_quantity(self, borrowed_quantity: int):
-        self.__borrowing_hystory = borrowed_quantity
+    @borrowed_quantity.setter
+    def borrowed_quantity(self, borrowed_quantity: int):
+        if borrowed_quantity > 0:
+            self.__borrowing_hystory = borrowed_quantity
+        else:
+            raise InvalidBorrowingQuantity("Borrowed quantity must be greater than 0")
+
+    @property
+    def full_description(self):
+        return f"title: {self.title} | author: {self.author} | isbn: {self.isbn} | availability: {self.availability} | borrowing history: {self.__borrowing_hystory}"
 
 
 class PhysicalBook(Book):

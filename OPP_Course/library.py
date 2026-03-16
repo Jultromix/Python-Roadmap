@@ -10,7 +10,7 @@ class Library:
         self.users: list[RequesterProtocol] = []
 
     def available_books(self):
-        return [book.title for book in self.books if book.availability]
+        return [book for book in self.books if book.availability]
 
     def search_user(self, id):
         for user in self.users:
@@ -24,3 +24,7 @@ class Library:
             if book.title == title and book.availability:
                 return book
         raise BookNotAvailable(f"The book: {title} isn't available or doesn't exist")
+
+    @staticmethod
+    def validate_isbn(isbn):
+        return len(isbn) >= 10
