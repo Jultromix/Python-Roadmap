@@ -1,6 +1,8 @@
 import zoneinfo
 from fastapi import FastAPI
 from datetime import datetime
+from models import Customer, Transaction, Invoice
+
 
 app = FastAPI()
 
@@ -42,3 +44,18 @@ async def time_format(iso_code: str, format: str):
         return {"timestamp": datetime.now(tz).strftime("%H:%M:%S")}
     else:
         return {"timestamp": datetime.now(tz)}
+
+
+@app.post("/customer")
+async def create_customer(customer_data: Customer):
+    return {"customer": customer_data}
+
+
+@app.post("/transaction")
+async def create_transaction(transaction_data: Transaction):
+    return {"transaction": transaction_data}
+
+
+@app.post("/invoice")
+async def create_invoice(invoice_data: Invoice):
+    return {"invoice": invoice_data}
