@@ -1,14 +1,19 @@
-from tkinter import E
-
 from pydantic import BaseModel, EmailStr
 
 
-class Customer(BaseModel):
-    id: int
+class CustomerBase(BaseModel):
     name: str
     email: EmailStr
     age: int
-    description: str | None
+    description: str | None = None
+
+
+class CustomerCreate(CustomerBase):
+    pass
+
+
+class Customer(CustomerBase):
+    id: int | None = None
 
 
 class Transaction(BaseModel):
@@ -19,7 +24,7 @@ class Transaction(BaseModel):
 
 class Invoice(BaseModel):
     id: int
-    costumer: Customer
+    customer: Customer
     transactions: list[Transaction]
     total: int
 

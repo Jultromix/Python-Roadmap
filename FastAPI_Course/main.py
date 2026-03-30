@@ -1,7 +1,7 @@
 import zoneinfo
 from fastapi import FastAPI
 from datetime import datetime
-from models import Customer, Transaction, Invoice
+from models import Customer, Transaction, Invoice, CustomerCreate
 
 
 app = FastAPI()
@@ -46,16 +46,36 @@ async def time_format(iso_code: str, format: str):
         return {"timestamp": datetime.now(tz)}
 
 
-@app.post("/customer")
-async def create_customer(customer_data: Customer):
-    return {"customer": customer_data}
+customer_list: list[Customer] = []
+
+
+@app.post("/customer", response_model=Customer)
+async def create_customer(customer_data: CustomerCreate):
+
+    customer = Customer.model_validate(customer_data.model_dump())
+    # This is an async function for ubpdating the id (simulating what happens with a DB)
+    customer_list.append(customer)
+    customer.id = len(customer_list)
+    return customer
+
+
+@app.get("/customer", response_model=list[Customer])
+async def list_customers():
+    return customer_list
+
+
+@app.get("/customer/{customer_id}", response_model=Customer | None)
+async def list_customers_by_id(customer_id: int):
+
+    customers = [customer for customer in customer_list if customer.id == customer_id]
+    return customers[0] if customers else None
 
 
 @app.post("/transaction")
 async def create_transaction(transaction_data: Transaction):
-    return {"transaction": transaction_data}
+    return transaction_data
 
 
 @app.post("/invoice")
 async def create_invoice(invoice_data: Invoice):
-    return {"invoice": invoice_data}
+    return invoice_data
