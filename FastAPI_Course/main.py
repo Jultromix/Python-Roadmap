@@ -2,7 +2,7 @@ import zoneinfo
 from fastapi import FastAPI
 from datetime import datetime
 from models import Customer, Transaction, Invoice, CustomerCreate
-
+from db import SessionDep
 
 app = FastAPI()
 
@@ -50,7 +50,7 @@ customer_list: list[Customer] = []
 
 
 @app.post("/customer", response_model=Customer)
-async def create_customer(customer_data: CustomerCreate):
+async def create_customer(customer_data: CustomerCreate, session: SessionDep):
 
     customer = Customer.model_validate(customer_data.model_dump())
     # This is an async function for ubpdating the id (simulating what happens with a DB)
