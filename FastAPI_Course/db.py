@@ -1,12 +1,17 @@
 from typing import Annotated
 
-from fastapi import Depends
-from sqlmodel import create_engine, Session
+from fastapi import Depends, FastAPI
+from sqlmodel import create_engine, Session, SQLModel
 
 sqlite_name = "db.sqlite3"
 sqlite_url = f"sqlite:///{sqlite_name}"
 
 engine = create_engine(sqlite_url)
+
+
+def create_db_and_tables(app: FastAPI):
+    SQLModel.metadata.create_all(engine)
+    yield
 
 
 def get_session():

@@ -1,10 +1,11 @@
 import zoneinfo
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from datetime import datetime
 from models import Customer, Transaction, Invoice, CustomerCreate
-from db import SessionDep
+from db import SessionDep, create_db_and_tables
+from sqlmodel import select
 
-app = FastAPI()
+app = FastAPI(lifespan=create_db_and_tables)
 
 
 @app.get("/")
@@ -53,22 +54,34 @@ customer_list: list[Customer] = []
 async def create_customer(customer_data: CustomerCreate, session: SessionDep):
 
     customer = Customer.model_validate(customer_data.model_dump())
+    session.add(customer)
+    session.commit()
+    session.refresh(customer)
+
     # This is an async function for ubpdating the id (simulating what happens with a DB)
-    customer_list.append(customer)
-    customer.id = len(customer_list)
+    # customer_list.append(customer)
+    # customer.id = len(customer_list)
     return customer
 
 
 @app.get("/customer", response_model=list[Customer])
-async def list_customers():
-    return customer_list
+async def list_customers(session: SessionDep):
+    return session.exec(select(Customer)).all()
 
 
 @app.get("/customer/{customer_id}", response_model=Customer | None)
-async def list_customers_by_id(customer_id: int):
+async def list_customers_by_id(customer_id: int, session: SessionDep):
 
-    customers = [customer for customer in customer_list if customer.id == customer_id]
-    return customers[0] if customers else None
+    # customers = [customer for customer in customer_list if customer.id == customer_id]
+    try:
+        customer = session.exec(
+            select(Customer).where(Customer.id == customer_id)
+        ).first()
+        if customer is None:
+            raise HTTPException(status_code=404, detail="Customer not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    return customer
 
 
 @app.post("/transaction")
