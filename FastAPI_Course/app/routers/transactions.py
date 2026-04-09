@@ -1,5 +1,5 @@
 from models import Transaction, TransactionCreate, Customer
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Query, status
 from db import SessionDep
 from sqlmodel import select
 
@@ -22,7 +22,11 @@ async def create_transaction(transaction_data: TransactionCreate, session: Sessi
 
 
 @router.get("/transactions", tags=["transactions"])
-async def list_transactions(session: SessionDep):
-    query = select(Transaction)
+async def list_transactions(
+    session: SessionDep,
+    skip: int = Query(0, description="Number of items to skip"),
+    limit: int = Query(10, description="Maximum number of items to return"),
+):
+    query = select(Transaction).offset(skip).limit(limit)
     transactions = session.exec(query).all()
     return transactions
