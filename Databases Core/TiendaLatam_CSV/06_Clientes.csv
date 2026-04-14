@@ -1,0 +1,101 @@
+﻿ClienteID,Nombre,Apellido,Email,Telefono,PaisID,Ciudad,TipoClienteID,FechaRegistro,Activo
+1,Martín,García,martín.garcía1@email.com,12995325681,12,Colón,2,17/11/2022,1
+2,Florencia,López,florencia.lópez2@email.com,2965233690,2,Valparaíso,3,08/03/2024,1
+3,Santiago,Martínez,santiago.martínez3@email.com,7952834131,7,Montevideo,4,20/08/2023,1
+4,Valentina,Rodríguez,valentina.rodríguez4@email.com,8938004874,8,Lambaré,4,10/01/2022,1
+5,Nicolás,González,nicolás.gonzález5@email.com,4967360871,4,Cali,1,29/06/2022,1
+6,Agustina,Hernández,agustina.hernández6@email.com,2920934179,2,Antofagasta,2,24/01/2022,1
+7,Tomás,Pérez,tomás.pérez7@email.com,4922686927,4,Bogotá,1,16/03/2023,1
+8,Luciana,Sánchez,luciana.sánchez8@email.com,2944464812,2,Concepción,1,17/08/2022,1
+9,Benjamín,Ramírez,benjamín.ramírez9@email.com,3941401532,3,Lima,2,02/11/2022,1
+10,Catalina,Torres,catalina.torres10@email.com,4996551435,4,Bogotá,1,06/04/2024,1
+11,Emilio,Flores,emilio.flores11@email.com,10996821899,10,Guayaquil,1,10/06/2020,1
+12,Renata,Rivera,renata.rivera12@email.com,6995720925,6,Salvador,1,24/06/2023,1
+13,Rodrigo,Morales,rodrigo.morales13@email.com,5932101846,5,Puebla,1,17/06/2023,1
+14,Natalia,Castro,natalia.castro14@email.com,7926802471,7,Montevideo,3,20/06/2020,1
+15,Facundo,Ortiz,facundo.ortiz15@email.com,10991562194,10,Guayaquil,1,07/09/2023,1
+16,Jimena,Ramos,jimena.ramos16@email.com,1933129210,1,Mendoza,1,16/05/2023,1
+17,Ignacio,Díaz,ignacio.díaz17@email.com,2997438316,2,Concepción,1,28/04/2024,1
+18,Gabriela,Cruz,gabriela.cruz18@email.com,6981182175,6,Salvador,2,09/10/2021,1
+19,Federico,Reyes,federico.reyes19@email.com,12971099085,12,Colón,1,05/09/2023,1
+20,Daniela,Vargas,daniela.vargas20@email.com,9924576218,9,La Paz,1,12/02/2021,1
+21,Antonio,García,antonio.garcía21@email.com,2950400737,2,Santiago,1,15/08/2020,1
+22,Paola,López,paola.lópez22@email.com,11939479041,11,Caracas,1,31/03/2023,1
+23,Ricardo,Martínez,ricardo.martínez23@email.com,9913192381,9,La Paz,1,17/06/2023,1
+24,Claudia,Rodríguez,claudia.rodríguez24@email.com,11926916149,11,Maracaibo,2,02/08/2022,1
+25,Esteban,González,esteban.gonzález25@email.com,7939259726,7,Maldonado,1,13/10/2023,1
+26,Marcela,Hernández,marcela.hernández26@email.com,4950455715,4,Medellín,1,16/10/2023,1
+27,Patricio,Pérez,patricio.pérez27@email.com,3921105525,3,Arequipa,1,13/09/2020,1
+28,Silvia,Sánchez,silvia.sánchez28@email.com,8995121716,8,Ciudad del Este,1,12/04/2023,1
+29,Horacio,Ramírez,horacio.ramírez29@email.com,5937786553,5,Ciudad de México,1,03/09/2022,1
+30,Verónica,Torres,verónica.torres30@email.com,6923244278,6,Rio de Janeiro,2,17/07/2020,1
+31,Martín,Flores,martín.flores31@email.com,1947920371,1,Mendoza,1,30/03/2022,1
+32,Florencia,Rivera,florencia.rivera32@email.com,7918940195,7,Maldonado,4,12/10/2023,1
+33,Santiago,Morales,santiago.morales33@email.com,10981037021,10,Quito,1,28/05/2020,1
+34,Valentina,Castro,valentina.castro34@email.com,2912082947,2,Concepción,3,30/04/2020,1
+35,Nicolás,Ortiz,nicolás.ortiz35@email.com,3915534738,3,Lima,1,28/04/2024,1
+36,Agustina,Ramos,agustina.ramos36@email.com,4990698452,4,Barranquilla,2,22/06/2020,1
+37,Tomás,Díaz,tomás.díaz37@email.com,2969429458,2,Concepción,1,01/10/2022,1
+38,Luciana,Cruz,luciana.cruz38@email.com,1960459387,1,Córdoba,2,04/11/2020,1
+39,Benjamín,Reyes,benjamín.reyes39@email.com,9971590035,9,Santa Cruz,1,25/04/2024,1
+40,Catalina,Vargas,catalina.vargas40@email.com,2940894687,2,Antofagasta,1,19/07/2022,1
+41,Emilio,García,emilio.garcía41@email.com,4937724745,4,Cali,1,16/03/2022,1
+42,Renata,López,renata.lópez42@email.com,10959305847,10,Guayaquil,1,29/10/2023,1
+43,Rodrigo,Martínez,rodrigo.martínez43@email.com,1982724602,1,Mendoza,2,29/12/2022,1
+44,Natalia,Rodríguez,natalia.rodríguez44@email.com,3958777785,3,Lima,1,21/07/2023,1
+45,Facundo,González,facundo.gonzález45@email.com,6968065067,6,São Paulo,1,18/01/2023,1
+46,Jimena,Hernández,jimena.hernández46@email.com,9981948856,9,Oruro,1,28/02/2022,1
+47,Ignacio,Pérez,ignacio.pérez47@email.com,12921166085,12,David,3,08/11/2020,1
+48,Gabriela,Sánchez,gabriela.sánchez48@email.com,11972426384,11,Valencia,1,19/08/2023,1
+49,Federico,Ramírez,federico.ramírez49@email.com,11927392985,11,Maracaibo,2,14/08/2021,1
+50,Daniela,Torres,daniela.torres50@email.com,6985329879,6,Brasília,3,23/10/2020,1
+51,Antonio,Flores,antonio.flores51@email.com,3996616645,3,Lima,2,31/10/2022,1
+52,Paola,Rivera,paola.rivera52@email.com,1938712584,1,Rosario,1,22/02/2022,1
+53,Ricardo,Morales,ricardo.morales53@email.com,9994587994,9,Santa Cruz,1,11/09/2021,1
+54,Claudia,Castro,claudia.castro54@email.com,3946867796,3,Arequipa,3,13/08/2023,1
+55,Esteban,Ortiz,esteban.ortiz55@email.com,1955594207,1,Buenos Aires,1,19/05/2023,1
+56,Marcela,Ramos,marcela.ramos56@email.com,5929595347,5,Guadalajara,1,10/11/2023,1
+57,Patricio,Díaz,patricio.díaz57@email.com,5920168038,5,Monterrey,1,18/08/2022,1
+58,Silvia,Cruz,silvia.cruz58@email.com,8973422517,8,Asunción,1,01/09/2021,1
+59,Horacio,Reyes,horacio.reyes59@email.com,7928079283,7,Montevideo,2,01/09/2020,1
+60,Verónica,Vargas,verónica.vargas60@email.com,12971148656,12,Santiago,1,18/05/2023,1
+61,Martín,García,martín.garcía61@email.com,8933923542,8,Lambaré,2,24/06/2023,1
+62,Florencia,López,florencia.lópez62@email.com,4969866743,4,Bogotá,1,09/04/2023,1
+63,Santiago,Martínez,santiago.martínez63@email.com,7981767324,7,Paysandú,1,07/10/2020,1
+64,Valentina,Rodríguez,valentina.rodríguez64@email.com,2937790260,2,Valparaíso,2,16/08/2022,1
+65,Nicolás,González,nicolás.gonzález65@email.com,9922728525,9,Oruro,1,06/09/2021,1
+66,Agustina,Hernández,agustina.hernández66@email.com,6986778549,6,Rio de Janeiro,1,12/03/2021,1
+67,Tomás,Pérez,tomás.pérez67@email.com,6954994433,6,Rio de Janeiro,2,10/04/2024,1
+68,Luciana,Sánchez,luciana.sánchez68@email.com,7918905652,7,Salto,1,22/06/2021,1
+69,Benjamín,Ramírez,benjamín.ramírez69@email.com,3947582812,3,Lima,1,07/09/2023,1
+70,Catalina,Torres,catalina.torres70@email.com,7935772309,7,Montevideo,1,06/05/2021,1
+71,Emilio,Flores,emilio.flores71@email.com,10964683048,10,Manta,2,04/11/2021,1
+72,Renata,Rivera,renata.rivera72@email.com,12922829649,12,Colón,1,13/05/2023,1
+73,Rodrigo,Morales,rodrigo.morales73@email.com,8942623978,8,Encarnación,2,13/06/2023,1
+74,Natalia,Castro,natalia.castro74@email.com,5983915259,5,Ciudad de México,4,23/10/2023,1
+75,Facundo,Ortiz,facundo.ortiz75@email.com,12955080685,12,Santiago,1,30/11/2021,1
+76,Jimena,Ramos,jimena.ramos76@email.com,4917522464,4,Medellín,1,23/06/2021,1
+77,Ignacio,Díaz,ignacio.díaz77@email.com,8914135524,8,Asunción,1,25/09/2022,1
+78,Gabriela,Cruz,gabriela.cruz78@email.com,5981577444,5,Guadalajara,2,12/08/2022,1
+79,Federico,Reyes,federico.reyes79@email.com,7958791980,7,Montevideo,2,18/07/2020,1
+80,Daniela,Vargas,daniela.vargas80@email.com,1940702791,1,Córdoba,1,15/06/2023,1
+81,Antonio,García,antonio.garcía81@email.com,11915715538,11,Barquisimeto,1,23/12/2021,1
+82,Paola,López,paola.lópez82@email.com,1982515555,1,Córdoba,2,25/02/2022,1
+83,Ricardo,Martínez,ricardo.martínez83@email.com,9972322029,9,La Paz,2,24/09/2022,1
+84,Claudia,Rodríguez,claudia.rodríguez84@email.com,12924061031,12,David,3,30/06/2022,1
+85,Esteban,González,esteban.gonzález85@email.com,8957244792,8,Asunción,1,22/02/2024,1
+86,Marcela,Hernández,marcela.hernández86@email.com,3949296838,3,Arequipa,2,27/01/2023,1
+87,Patricio,Pérez,patricio.pérez87@email.com,1977999049,1,Córdoba,1,12/12/2021,1
+88,Silvia,Sánchez,silvia.sánchez88@email.com,11955763869,11,Valencia,2,30/11/2020,1
+89,Horacio,Ramírez,horacio.ramírez89@email.com,11917183128,11,Maracaibo,2,20/07/2022,1
+90,Verónica,Torres,verónica.torres90@email.com,1929899015,1,Mendoza,3,06/05/2023,1
+91,Martín,Flores,martín.flores91@email.com,4929805588,4,Cali,1,18/08/2023,1
+92,Florencia,Rivera,florencia.rivera92@email.com,5950794844,5,Monterrey,2,27/03/2021,1
+93,Santiago,Morales,santiago.morales93@email.com,8930768407,8,Asunción,1,02/09/2023,1
+94,Valentina,Castro,valentina.castro94@email.com,1957419363,1,Córdoba,4,24/06/2021,1
+95,Nicolás,Ortiz,nicolás.ortiz95@email.com,5913545844,5,Ciudad de México,1,16/11/2022,1
+96,Agustina,Ramos,agustina.ramos96@email.com,8973092551,8,Encarnación,1,24/05/2020,1
+97,Tomás,Díaz,tomás.díaz97@email.com,8914491147,8,Asunción,2,12/03/2024,1
+98,Luciana,Cruz,luciana.cruz98@email.com,2947608586,2,Concepción,1,22/12/2021,1
+99,Benjamín,Reyes,benjamín.reyes99@email.com,8996285598,8,Encarnación,2,11/11/2023,1
+100,Catalina,Vargas,catalina.vargas100@email.com,7962863117,7,Montevideo,3,13/03/2024,1

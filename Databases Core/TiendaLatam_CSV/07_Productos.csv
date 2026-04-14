@@ -1,0 +1,40 @@
+﻿ProductoID,CodigoProducto,NombreProducto,CategoriaID,Precio,Stock,Descripcion,Activo
+1,ELEC-001,Laptop HP ProBook 450,1,2299.99,399,"Laptop 15.6 pulgadas, Core i5, 8GB RAM, 256GB SSD",1
+2,ELEC-002,Monitor Dell 24 FHD,1,389.99,18,"Monitor Full HD 24 pulgadas, panel IPS",1
+3,ELEC-003,Smartphone Samsung A55,1,599.99,142,"Smartphone 6.5 pulgadas, 128GB, cámara 50MP",1
+4,ELEC-004,Teclado Logitech MX Keys,1,149.99,387,Teclado inalámbrico retroiluminado,1
+5,ELEC-005,Mouse Inalámbrico MX Master,1,99.99,17,Mouse ergonómico de alta precisión,1
+6,ELEC-006,Auriculares Sony WH-1000XM5,1,349.99,408,Auriculares con cancelación de ruido,1
+7,ELEC-007,Tablet iPad Air 10.9,1,879.99,484,Tablet Apple 256GB con chip M1,1
+8,ELEC-008,Disco SSD Externo 1TB,1,119.99,359,Unidad de estado sólido USB 3.2,1
+9,ROPA-001,Zapatillas Nike Air Max,2,129.99,279,Zapatillas deportivas talla 38-44,1
+10,ROPA-002,Remera Polo Ralph Lauren,2,79.99,310,"Remera algodón piqué, talle S-XL",1
+11,ROPA-003,Jean Levi 511 Slim,2,89.99,427,Pantalón vaquero slim fit,1
+12,ROPA-004,Campera The North Face,2,249.99,44,Campera impermeable para montaña,1
+13,ROPA-005,Vestido Zara Floral,2,69.99,356,Vestido verano estampado floral,1
+14,ROPA-006,Botas Timberland Classic,2,189.99,12,Botas cuero impermeables,1
+15,HOGAR-001,Sillón Relax 3 Cuerpos,3,599.99,428,Sillón tapizado en tela resistente,1
+16,HOGAR-002,Set Sábanas Percal 400h,3,89.99,171,Set cama doble 100% algodón,1
+17,HOGAR-003,Cafetera Nespresso Vertuo,3,199.99,378,Cafetera cápsulas sistema Vertuo,1
+18,HOGAR-004,Aspiradora Dyson V15,3,499.99,62,Aspiradora sin cable filtro HEPA,1
+19,HOGAR-005,Lámpara de Pie LED,3,149.99,263,Lámpara moderna altura 160cm,1
+20,ALIM-001,Aceite de Oliva Extra Virgen 1L,4,18.99,230,Aceite primera prensada en frío,1
+21,ALIM-002,Café Origen Etiopía 250g,4,14.99,63,Café molido arábica 100% Etiopía,1
+22,ALIM-003,Té Verde Matcha 100g,4,22.99,180,Matcha ceremonial japonés de primera,1
+23,ALIM-004,Chocolates Lindt Selección,4,24.99,274,Caja surtida 200g chocolates suizos,1
+24,DEP-001,Bicicleta MTB Specialized,5,899.99,23,Mountain bike aluminio 21 velocidades,1
+25,DEP-002,Pelota Fútbol Adidas Pro,5,59.99,385,Pelota oficial FIFA talla 5,1
+26,DEP-003,Raqueta Tenis Wilson Blade,5,249.99,16,Raqueta competencia grafito 98sq,1
+27,DEP-004,Colchoneta Yoga 6mm,5,39.99,361,Mat antideslizante con correa,1
+28,DEP-005,Mancuernas 10kg Par,5,49.99,70,Mancuernas hexagonales recubiertas,1
+29,LIBRO-001,Clean Code - Robert Martin,6,42.99,476,Guía de buenas prácticas de programación,1
+30,LIBRO-002,El Principito - Saint-Exupéry,6,12.99,298,Edición especial ilustrada,1
+31,LIBRO-003,Sapiens - Yuval Harari,6,24.99,439,Breve historia de la humanidad,1
+32,LIBRO-004,Python para Análisis de Datos,6,59.99,347,"Wes McKinney, 3ra edición O'Reilly",1
+33,BELL-001,Perfume Chanel N°5 50ml,7,139.99,337,Eau de parfum floral aldehídico,1
+34,BELL-002,Crema Hidratante Nivea Q10,7,29.99,27,Crema antiedad con Q10 y vitamina E,1
+35,BELL-003,Set Maquillaje MAC Studio,7,89.99,459,Kit bases y sombras profesionales,1
+36,JUG-001,LEGO City Police Station,8,89.99,329,Set construcción 715 piezas,1
+37,JUG-002,Muñeca Barbie Astronauta,8,34.99,127,Barbie Carreras del Futuro con accesorios,1
+38,JUG-003,Hot Wheels 20 autos Pack,8,24.99,241,Pack colección con pista espiral,1
+39,JUG-004,Juego de Mesa Catan,8,54.99,137,Juego estrategia 3-4 jugadores,1

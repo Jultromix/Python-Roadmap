@@ -1,0 +1,5 @@
+﻿TipoClienteID,NombreTipo,Descripcion
+1,Regular,Cliente estándar con beneficios básicos
+2,Premium,Cliente con descuentos especiales y envío prioritario
+3,Corporativo,Empresa con convenio de compras al por mayor
+4,VIP,Cliente con máximos beneficios y atención personalizada

@@ -1,0 +1,21 @@
+﻿SucursalID,NombreSucursal,Ciudad,PaisID,DireccionCompleta,Activo
+1,Sucursal Buenos Aires Centro,Buenos Aires,1,"Av. Corrientes 1234, CABA",1
+2,Sucursal Palermo,Buenos Aires,1,"Thames 1850, Palermo, CABA",1
+3,Sucursal Córdoba,Córdoba,1,"Av. Colón 567, Córdoba",1
+4,Sucursal Santiago Centro,Santiago,2,Av. Libertador Bernardo O'Higgins 890,1
+5,Sucursal Providencia,Santiago,2,"Av. Providencia 1234, Providencia",1
+6,Sucursal Lima Miraflores,Lima,3,"Av. Larco 456, Miraflores",1
+7,Sucursal Lima San Isidro,Lima,3,"Av. Rivera Navarrete 789, San Isidro",1
+8,Sucursal Bogotá Chapinero,Bogotá,4,"Cra. 13 #67-45, Chapinero",1
+9,Sucursal Medellín El Poblado,Medellín,4,"Calle 10 #43D-25, El Poblado",1
+10,Sucursal Ciudad de México Polanco,Ciudad de México,5,"Presidente Masaryk 123, Polanco",1
+11,Sucursal Monterrey,Monterrey,5,"Av. Constitución 456, Monterrey",1
+12,Sucursal São Paulo Paulista,São Paulo,6,"Av. Paulista 1578, São Paulo",1
+13,Sucursal Rio de Janeiro,Rio de Janeiro,6,"Av. Atlântica 2000, Copacabana",1
+14,Sucursal Montevideo,Montevideo,7,"18 de Julio 890, Centro",1
+15,Sucursal Asunción,Asunción,8,"Av. España 567, Asunción",1
+16,Sucursal La Paz,La Paz,9,"Av. 16 de Julio 1234, La Paz",1
+17,Sucursal Quito,Quito,10,"Av. Naciones Unidas 456, Quito",1
+18,Sucursal Guayaquil,Guayaquil,10,"Av. 9 de Octubre 789, Guayaquil",1
+19,Sucursal Caracas,Caracas,11,"Av. Francisco de Miranda 123, Chacao",1
+20,Sucursal Ciudad de Panamá,Ciudad de Panamá,12,"Via España 456, Bella Vista",1
