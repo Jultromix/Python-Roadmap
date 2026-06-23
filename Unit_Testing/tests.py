@@ -1,18 +1,20 @@
-def calculate_total(products):
+def calculate_total(products, discount=0):
     total = 0
     for product in products:
-        total += product["price"]
+        total += product["price"] - (product["price"] * discount)
     return total
 
 
 def test_calculate_total_with_empty_list():
     assert calculate_total([]) == 0
+    assert calculate_total([], discount=0.5) == 0
 
 
 def test_calculate_total_with_single_product():
     products = [{"name": "Product A", "price": 10}]
 
     assert calculate_total(products) == 10
+    assert calculate_total(products, discount=0.5) == 5
 
 
 def test_calculate_total_with_multiple_product():
@@ -23,6 +25,7 @@ def test_calculate_total_with_multiple_product():
     ]
 
     assert calculate_total(products) == 60
+    assert calculate_total(products, discount=0.5) == 30
 
 
 if __name__ == "__main__":
