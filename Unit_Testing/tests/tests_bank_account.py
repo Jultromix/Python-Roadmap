@@ -46,3 +46,13 @@ class BankAccountTests(unittest.TestCase):
         assert (
             self._count_lines(self.account.log_file) == 2
         )  # Account creation and deposit
+
+        # Verifying the log for transfers
+        target_account = BankAccount(balance=500)
+        self.account.transfer(200, target_account)
+        assert target_account.get_balance() == 700
+        assert self._count_lines(self.account.log_file) == 3
+
+        with self.assertRaises(ValueError):
+            self.account.transfer(20000, target_account)
+            assert self._count_lines(self.account.log_file) == 4

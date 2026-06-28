@@ -28,6 +28,9 @@ class BankAccount:
     def transfer(self, amount, target_account):
         if amount > 0:
             if self.balance < amount:
+                self._log_transaction(
+                    f"Failed transfer of {amount} to {target_account}, Insufficient funds"
+                )
                 raise ValueError("Insufficient funds for transfer.")
 
             self.balance -= amount
