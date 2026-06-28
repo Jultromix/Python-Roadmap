@@ -14,3 +14,12 @@ class BankAccount:
 
     def get_balance(self):
         return self.balance
+
+    def transfer(self, amount, target_account):
+        if amount > 0:
+            if self.balance < amount:
+                raise ValueError("Insufficient funds for transfer.")
+
+            self.balance -= amount
+            target_account.deposit(amount)
+        return self.balance
