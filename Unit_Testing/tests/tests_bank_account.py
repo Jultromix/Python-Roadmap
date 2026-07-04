@@ -1,5 +1,8 @@
 import unittest, os
 
+from sys import path
+
+path.append(".")
 from src.bank_account import BankAccount
 
 
