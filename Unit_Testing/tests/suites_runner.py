@@ -1,5 +1,5 @@
 import unittest
-from tests_bank_account import BankAccountTests
+from Unit_Testing.tests.test_bank_account import BankAccountTests
 
 
 def bank_account_suite():
