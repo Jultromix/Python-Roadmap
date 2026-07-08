@@ -18,19 +18,19 @@ class BankAccountTests(unittest.TestCase):
         with open(filename, "r") as f:
             return len(f.readlines())
 
-    def test_deposit(self):
+    def test_deposit_positive_val_increase_balance(self):
         new_balance = self.account.deposit(55)
         self.assertEqual(new_balance, 1055, "the balance is not equal")
 
-    def test_withdraw(self):
+    def test_withdraw_positive_val_decrease_balance(self):
         new_balance = self.account.withdraw(500)
         self.assertEqual(new_balance, 500, "the balance is not equal")
 
-    def test_get_balance(self):
+    def test_get_balance_returns_correct_value(self):
         balance = self.account.get_balance()
         self.assertEqual(balance, 1000, "the balance is not equal")
 
-    def test_transfer(self):
+    def test_transfer_positive_val_transfers_funds(self):
         target_account = BankAccount(balance=500)
         new_balance = self.account.transfer(200, target_account)
         self.assertEqual(new_balance, 800, "the balance is not equal")
@@ -38,11 +38,11 @@ class BankAccountTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.account.transfer(2000, target_account)  # Insufficient funds
 
-    def test_transaction_log(self):
+    def test_transaction_log_created(self):
         self.account.deposit(100)
         self.assertTrue(os.path.exists(self.account.log_file))
 
-    def test_count_transactions(self):
+    def test_count_transactions_in_log(self):
         self.assertEqual(self._count_lines(self.account.log_file), 1)
 
         self.account.deposit(100)
