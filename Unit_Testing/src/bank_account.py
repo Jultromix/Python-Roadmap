@@ -1,3 +1,8 @@
+from datetime import datetime
+
+from src.exceptions import InsufficientFundsError, WithdrawalTimeError
+
+
 class BankAccount:
     def __init__(self, balance=0, log_file=None):
         self.balance = balance
@@ -16,6 +21,14 @@ class BankAccount:
         return self.balance
 
     def withdraw(self, amount):
+        now = datetime.now()
+
+        if now.hour < 8 or now.hour > 17:  # Example condition, adjust as needed
+            raise WithdrawalTimeError("Withdrawals are not allowed at this time.")
+
+        if now.day in [6, 7]:  # Example condition for weekends
+            raise WithdrawalTimeError("Withdrawals are not allowed on weekends.")
+
         if amount > 0:
             self.balance -= amount
             self._log_transaction(f"Withdrew: {amount}, New Balance: {self.balance}")
@@ -31,7 +44,7 @@ class BankAccount:
                 self._log_transaction(
                     f"Failed transfer of {amount} to {target_account}, Insufficient funds"
                 )
-                raise ValueError("Insufficient funds for transfer.")
+                raise InsufficientFundsError("Insufficient funds for transfer.")
 
             self.balance -= amount
             target_account.deposit(amount)

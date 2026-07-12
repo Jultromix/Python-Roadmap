@@ -1,4 +1,6 @@
-import unittest, requests, os
+import unittest
+import requests
+import os
 from dotenv import load_dotenv
 
 SERVER = "server_b"

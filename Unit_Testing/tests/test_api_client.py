@@ -1,5 +1,5 @@
 import unittest
-from src.api_client import get_location, get_rates
+from src.api_client import get_location
 from unittest.mock import patch
 import requests
 
