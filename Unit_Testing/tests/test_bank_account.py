@@ -1,4 +1,3 @@
-from datetime import datetime
 import unittest
 import os
 
@@ -94,3 +93,16 @@ class BankAccountTests(unittest.TestCase):
         mock_datetime.now.return_value.hour = 10
         mock_datetime.now.return_value.day = 2
         self.account.withdraw(100)
+
+    def test_deposit_multiple_values(self):
+        test_cases = [
+            {"ammount": 100, "expected_value": 1100},
+            {"ammount": 200, "expected_value": 1200},
+            {"ammount": 3000, "expected_value": 4000},
+        ]
+
+        for case in test_cases:
+            with self.subTest(case=case):
+                self.account = BankAccount(balance=1000, log_file="test_log.txt")
+                new_balance = self.account.deposit(case["ammount"])
+                self.assertEqual(new_balance, case["expected_value"])
