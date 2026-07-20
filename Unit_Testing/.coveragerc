@@ -1,0 +1,11 @@
+[run]
+source = src
+
+[report]
+omit =
+    src/tests/*
+    src/mocks/*
+    src/__init__.py
+
+fail_under = 80
+show_missing = True
