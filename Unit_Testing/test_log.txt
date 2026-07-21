@@ -1,0 +1,6 @@
+Account created
+Deposited: 100, New Balance: 1100
+Account created
+Deposited: 200, New Balance: 1200
+Account created
+Deposited: 3000, New Balance: 4000

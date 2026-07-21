@@ -9,6 +9,7 @@ dependencies = [
     "dotenv>=0.9.9",
     "faker>=40.31.0",
     "ipdb>=0.13.13",
+    "pytest>=9.1.1",
     "requests>=2.34.2",
     "ruff>=0.15.16",
 ]
